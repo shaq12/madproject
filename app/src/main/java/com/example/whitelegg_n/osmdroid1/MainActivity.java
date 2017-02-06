@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
@@ -19,6 +20,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
         MapView mv = (MapView)findViewById(R.id.map1);
+        mv.setTileSource(TileSourceFactory.CYCLEMAP);
         mv.getController().setZoom(14);
         mv.getController().setCenter(new GeoPoint(40.1, 22.5));
     }
