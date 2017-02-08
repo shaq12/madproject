@@ -3,6 +3,8 @@ package com.example.whitelegg_n.osmdroid1;
 import android.app.Activity;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -23,5 +25,11 @@ public class MainActivity extends Activity {
         mv.setTileSource(TileSourceFactory.CYCLEMAP);
         mv.getController().setZoom(14);
         mv.getController().setCenter(new GeoPoint(40.1, 22.5));
+    }
+
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_hello_map, menu);
+        return true;
     }
 }
