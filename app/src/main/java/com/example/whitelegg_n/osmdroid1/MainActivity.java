@@ -36,15 +36,18 @@ public class MainActivity extends Activity
         inflater.inflate(R.menu.menu_hello_map, menu);
         return true;
     }
-
     public boolean onOptionsItemSelected(MenuItem item)
+
     {
-        if(item.getItemId()==R.id.choosemap)
+        if (item.getItemId() == R.id.choosemap)
         {
-            Intent intent = new Intent(this, MapChooseActivity.class);
+            Intent intent = new Intent (this, MapChooseActivity.class);
             startActivity(intent);
             return true;
         }
         return false;
     }
+
+
+
 }
