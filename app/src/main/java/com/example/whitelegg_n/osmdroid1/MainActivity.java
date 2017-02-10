@@ -15,6 +15,7 @@ import org.osmdroid.views.MapView;
 
 public class MainActivity extends Activity
 {
+    MapView mv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +26,7 @@ public class MainActivity extends Activity
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
 
         setContentView(R.layout.activity_main);
-        MapView mv = (MapView)findViewById(R.id.map1);
+        mv = (MapView)findViewById(R.id.map1);
         mv.getController().setZoom(14);
         mv.getController().setCenter(new GeoPoint(40.1, 22.5));
     }
@@ -42,12 +43,30 @@ public class MainActivity extends Activity
         if (item.getItemId() == R.id.choosemap)
         {
             Intent intent = new Intent (this, MapChooseActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 0);
             return true;
         }
         return false;
     }
 
 
-
+    public void onActivityResult(int requestCode, int responseCode,Intent intent)
+    {
+        if(responseCode == RESULT_OK)
+        {
+            if(requestCode == 0)
+            {
+                Bundle bundle = intent.getExtras();
+                boolean cyclemap = bundle.getBoolean("com.example.cyclemap");
+                if(cyclemap==true)
+                {
+                    mv.setTileSource(TileSourceFactory.CYCLEMAP);
+                }
+                else
+                {
+                    mv.setTileSource(TileSourceFactory.MAPNIK);
+                }
+            }
+        }
+    }
 }
