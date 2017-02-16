@@ -51,13 +51,19 @@ public class MainActivity extends Activity
             // Create an Intent to launch the MapChooseActivity
             Intent intent = new Intent (this, MapChooseActivity.class);
 
+
             // Start the Activity using the Intent.
             // Use a request code of 0 so that onActivityResult() knows which secondary
             // activity is sending the data back - in a full app, there would be more than
             // one secondary activity and each would be launched with its own request code.
             startActivityForResult(intent, 0);
             return true;
-        }
+
+    }
+
+
+
+
         return false;
     }
 
@@ -96,4 +102,5 @@ public class MainActivity extends Activity
             }
         }
     }
+
 }

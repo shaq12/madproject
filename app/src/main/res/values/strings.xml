@@ -3,4 +3,8 @@
     <string name="choosemap">Choose Map Style</string>
     <string name="regularview">Regular view</string>
     <string name="cyclemapview">Cycle Map view</string>
+    <string name="setlocation">SetLocation</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="ok">Ok</string>
 </resources>
